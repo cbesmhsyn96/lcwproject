@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class Methods extends Base {
@@ -44,7 +45,9 @@ public class Methods extends Base {
     }
     public void randomProduct(){
         List<WebElement> products = driver.findElements(Elements.randomProduct);
-        products.get(7).click();
+        Random rand = new Random();
+        int element_index = rand.nextInt(products.size());
+        products.get(element_index).click();
         log.info("Ürün Seçildi.");
     }
     public void selectSize(){
